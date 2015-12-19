@@ -4,7 +4,7 @@ project(jasper C)
 
 set(INSTALL_BIN_DIR "${CMAKE_INSTALL_PREFIX}/bin" CACHE PATH "Installation directory for executables")
 set(INSTALL_LIB_DIR "${CMAKE_INSTALL_PREFIX}/lib" CACHE PATH "Installation directory for libraries")
-set(INSTALL_INC_DIR "${CMAKE_INSTALL_PREFIX}/include" CACHE PATH "Installation directory for headers")
+set(INSTALL_INC_DIR "${CMAKE_INSTALL_PREFIX}/include/jasper" CACHE PATH "Installation directory for headers")
 
 include(CheckTypeSize)
 include(CheckFunctionExists)
@@ -85,6 +85,8 @@ set(      LIBJASPER_PGX_HDRS ${CMAKE_CURRENT_SOURCE_DIR}/src/libjasper/pgx/pgx_c
 set(      LIBJASPER_PNM_HDRS ${CMAKE_CURRENT_SOURCE_DIR}/src/libjasper/pnm/pnm_cod.h)
 set(      LIBJASPER_RAS_HDRS ${CMAKE_CURRENT_SOURCE_DIR}/src/libjasper/ras/ras_cod.h)                             
 
+file(GLOB LIBJASPER_PUBLIC_HDRS ${CMAKE_CURRENT_SOURCE_DIR}/src/libjasper/include/*.h)
+
 set(LIBJASPER_SRCS			${LIBJASPER_BASE_SRCS}
 							${LIBJASPER_BMP_SRCS}
 							${LIBJASPER_JP2_SRCS}
@@ -104,6 +106,7 @@ set(LIBJASPER_HDRS			${LIBJASPER_BMP_HDRS}
 							${LIBJASPER_PGX_HDRS}
 							${LIBJASPER_PNM_HDRS}
 							${LIBJASPER_RAS_HDRS})
+						
 
 add_library(jasper SHARED ${LIBJASPER_SRCS} ${LIBJASPER_HDRS})
 add_library(jasperstatic STATIC ${LIBJASPER_SRCS} ${LIBJASPER_HDRS})
@@ -116,7 +119,7 @@ if(NOT SKIP_INSTALL_LIBRARIES AND NOT SKIP_INSTALL_ALL )
 endif()
 
 if(NOT SKIP_INSTALL_HEADERS AND NOT SKIP_INSTALL_ALL )
-    install(FILES ${ZLIB_PUBLIC_HDRS} DESTINATION "${INSTALL_INC_DIR}")
+    install(FILES ${LIBJASPER_PUBLIC_HDRS} DESTINATION "${INSTALL_INC_DIR}")
 endif()
 
 
