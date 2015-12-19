@@ -58,7 +58,7 @@ if(MSVC)
 endif()
 
 configure_file(	${CMAKE_CURRENT_SOURCE_DIR}/src/libjasper/include/jasper/jas_config.h.in
-		${CMAKE_CURRENT_BINARY_DIR}/jasper/jas_config.h @ONLY)
+		${CMAKE_CURRENT_BINARY_DIR}/jasper/jas_config.h)
 include_directories(${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/src/libjasper/include)
 
 #SOURCE FLES
