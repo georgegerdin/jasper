@@ -85,7 +85,7 @@ set(      LIBJASPER_PGX_HDRS ${CMAKE_CURRENT_SOURCE_DIR}/src/libjasper/pgx/pgx_c
 set(      LIBJASPER_PNM_HDRS ${CMAKE_CURRENT_SOURCE_DIR}/src/libjasper/pnm/pnm_cod.h)
 set(      LIBJASPER_RAS_HDRS ${CMAKE_CURRENT_SOURCE_DIR}/src/libjasper/ras/ras_cod.h)                             
 
-file(GLOB LIBJASPER_PUBLIC_HDRS ${CMAKE_CURRENT_SOURCE_DIR}/src/libjasper/include/*.h)
+file(GLOB LIBJASPER_PUBLIC_HDRS ${CMAKE_CURRENT_SOURCE_DIR}/src/libjasper/include/jasper/*.h)
 
 set(LIBJASPER_SRCS			${LIBJASPER_BASE_SRCS}
 							${LIBJASPER_BMP_SRCS}
